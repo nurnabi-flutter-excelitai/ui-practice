@@ -1,5 +1,6 @@
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppElevatedBtn extends StatelessWidget {
   const AppElevatedBtn({Key? key, required this.btnText, required this.onTap})
@@ -13,7 +14,7 @@ class AppElevatedBtn extends StatelessWidget {
     final size = MediaQuery.of(context).size.width;
     return SizedBox(
       //height: 50,
-      width: size*(95/360),
+     // width: size*(95/360),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.all(14),
@@ -24,14 +25,12 @@ class AppElevatedBtn extends StatelessWidget {
         child: Row(
           children: [
             Text(btnText),
-            SizedBox(
-              width: size * (8 / 360),
-            ),
+            SizedBox(width: 4.w,),
             CircleAvatar(
-                radius: 10,
+                radius: 10.r,
                 child: Icon(
                   Icons.arrow_forward_ios_rounded,
-                  size: 13,
+                  size: 13.sp,
                 ))
           ],
         ),

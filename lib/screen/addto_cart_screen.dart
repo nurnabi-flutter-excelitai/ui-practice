@@ -2,6 +2,7 @@ import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:excel_it_task/widgets/app_elevated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddToCartScreen extends StatefulWidget {
   const AddToCartScreen({Key? key}) : super(key: key);
@@ -14,12 +15,12 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
 
   bool isSelected = false;
   int _selectedValue = 1;
+  int _selectedValue2 = 2;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.width;
     return Scaffold(
-
 
       backgroundColor: AppColor.appPrimaryColor,
       body: CustomScrollView(
@@ -27,7 +28,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
           SliverAppBar(
             backgroundColor: AppColor.appPrimaryColor,
             floating: true,
-            expandedHeight: 300,
+            expandedHeight: 300.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 //height: 300,
@@ -36,7 +37,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                       image: AssetImage('images/nancy_momoland.jpeg'),
                       fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30.r),bottomRight: Radius.circular(30.r))),
               ),
             ),
           ),
@@ -46,19 +47,19 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
 
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.only(top: 70),
+              padding: EdgeInsets.only(top: 70.h),
               child: Container(
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                     color: AppColor.appBackgroundColor,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30))),
+                        topLeft: Radius.circular(30.r),
+                        topRight: Radius.circular(30.r))),
 
 
 
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10.0,right: 10,top: 20),
+                  padding: EdgeInsets.only(left: 10.0.w,right: 10.w,top: 20.h),
                   child: Column(
                     children: [
                       Row(
@@ -69,32 +70,32 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                         ],
                       ),
 
-                      SizedBox(height: 10,),
+                      SizedBox(height: 10.h,),
 
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
-                              Text('4.0',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12),),
-                              SizedBox(width: size*(4/360),),
+                              Text('4.0',style: TextStyle(fontWeight: FontWeight.w600,fontSize: 12.sp),),
+                              SizedBox(width: 4.h),
                               CircleAvatar(
-                                radius: 4,
+                                radius: 4.r,
                                 backgroundColor: Colors.red,
                               ),
-                              SizedBox(width: size*(3/360),),
+                              SizedBox(width: 3.w,),
                               CircleAvatar(
-                                radius: 4,
+                                radius: 4.r,
                                 backgroundColor: Colors.red,
                               ),
-                              SizedBox(width: size*(3/360),),
+                              SizedBox(width: 3.w,),
                               CircleAvatar(
-                                radius: 4,
+                                radius: 4.r,
                                 backgroundColor: Colors.red,
                               ),
-                              SizedBox(width: size*(3/360),),
+                              SizedBox(width: 3.w,),
                               CircleAvatar(
-                                radius: 4,
+                                radius: 4.r,
                                 backgroundColor: Colors.red,
                               ),
 
@@ -105,10 +106,10 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                         ],
                       ),
 
-                      SizedBox(height: 15,),
+                      SizedBox(height: 15.h,),
 
                       Padding(
-                        padding: EdgeInsets.only(right: 30),
+                        padding:  EdgeInsets.only(right: 48.0.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -160,28 +161,28 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                            children: [
                              Radio(
                                value: 1,
-                               groupValue: _selectedValue,
+                               groupValue: _selectedValue2,
                                onChanged: (value) {
                                  setState(() {
-                                   _selectedValue = value!;
+                                   _selectedValue2 = value!;
                                  });
                                },
                              ),
                              Radio(
                                value: 2,
-                               groupValue: _selectedValue,
+                               groupValue: _selectedValue2,
                                onChanged: (value) {
                                  setState(() {
-                                   _selectedValue = value!;
+                                   _selectedValue2 = value!;
                                  });
                                },
                              ),
                              Radio(
                                value: 3,
-                               groupValue: _selectedValue,
+                               groupValue: _selectedValue2,
                                onChanged: (value) {
                                  setState(() {
-                                   _selectedValue = value!;
+                                   _selectedValue2 = value!;
                                  });
                                },
                              ),
@@ -196,40 +197,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
 
 
 
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     for (int i = 0; i <3; i++)
-                      //       Padding(
-                      //         padding: const EdgeInsets.all(8.0),
-                      //         child: CircleAvatar(
-                      //           radius:10,
-                      //           backgroundColor: AppColor.appPrimaryColor,
-                      //           child: Icon(Icons.check,size: 5,),
-                      //         ),
-                      //       ),
-                      //
-                      //     Row(
-                      //       children: [
-                      //         for (int i = 0; i < 3; i++)
-                      //           Padding(
-                      //             padding: const EdgeInsets.all(8.0),
-                      //             child: Container(
-                      //               padding: EdgeInsets.all(8),
-                      //               decoration: BoxDecoration(
-                      //                   border: Border.all(
-                      //                       color: Colors.black54, width: 2),
-                      //                   borderRadius: BorderRadius.circular(10)),
-                      //               child: Text('XL',style: appSubTextStyle(),),
-                      //             ),
-                      //           )
-                      //       ],
-                      //     ),
-                      //
-                      //
-                      //
-                      //   ],
-                      // ),
+
 
 
 
