@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:onboarding/onboarding.dart';
 
+import 'custom_progress_indicator.dart';
+
 // class OnboardingScreen extends StatefulWidget {
 //   const OnboardingScreen({Key? key}) : super(key: key);
 //
@@ -335,7 +337,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 10.h,),
+            TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyWidget()));
+            }, child: Text('SKIP',style: onBordingScreenTextStyle(),))
           ],
         ),
       ),
