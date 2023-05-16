@@ -1,4 +1,5 @@
 import 'package:excel_it_task/screen/addto_cart_screen.dart';
+import 'package:excel_it_task/screen/card_screen.dart';
 import 'package:excel_it_task/screen/cheackout_screen.dart';
 import 'package:excel_it_task/screen/onboarding_screen.dart';
 import 'package:excel_it_task/screen/oreder_review_screen.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: OnboardingScreen()
+            home: CardScreen()
         );
       },
 

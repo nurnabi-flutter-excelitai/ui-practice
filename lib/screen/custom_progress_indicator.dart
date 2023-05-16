@@ -9,7 +9,7 @@ class CustomCircularProgressIndicator extends StatelessWidget {
   final Widget? child;
 
   CustomCircularProgressIndicator({
-    this.size = 50.0,
+    this.size = 0,
     this.strokeWidth = 5.0,
     this.color = Colors.red,
     this.value = 0.97,
@@ -56,8 +56,21 @@ class _CustomCircularProgressPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
+
+
+
+
+
     final double startAngle = -pi / 2 + (80 * pi / 180); // Convert degrees to radians
     final double sweepAngle = -2 * pi * value;
+
+
+
+
+
+
+
+
 
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),

@@ -1,5 +1,7 @@
 
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,43 +16,86 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Container(
-            height: 200.h,
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.all(Radius.circular(20.r))
+       body: Center(
+         child: Container(
+           height: 200.h,
+           width: 340.w,
+           decoration: BoxDecoration(
+             color: Colors.grey
+           ),
+           child: Stack(
+             children: [
 
-            ),
-            child: Stack(
-              children: [
-                ClipPath(
-                  clipper: WaveClipper(),
-                  child: Container(
+                  Positioned(
+                    top: -60,
+                    right: -70,
+                    bottom: 15,
+                    child: Transform.rotate(
+                      angle: -pi/11,
+                      child: Container(
+                        height: 100.h,
+                        width: 100.w,
+                        color: Colors.green,
 
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.all(Radius.circular(20.r))
+                 ),
+                    ),
+                  ),
+
+               Positioned(
+                    top: -120,
+                    right: 10,
+                    child: Transform.rotate(
+                      angle: pi/3.5,
+                      child: Container(
+                        height: 200.h,
+                        width: 200.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                          color: Colors.blue,
+                        ),
+                 ),
+                    ),
+                  ),
+
+               Positioned(
+                    top: -40,
+                    left: -75,
+                    bottom: -20,
+                    child: Transform.rotate(
+                      angle: pi/3,
+                      child: Container(
+                        height: 300.h,
+                        width: 300.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          color: Colors.deepPurpleAccent,
+                        ),
+
+
+
+                 ),
 
                     ),
                   ),
-                )
-              ],
-
-            ),
 
 
 
-          ),
-        ),
-      ),
+             ],
+           ),
+         ),
+       ),
+
+
+
+
+
+
 
 
     );
   }
 }
+
 
 class WaveClipper extends CustomClipper<Path>{
   @override
