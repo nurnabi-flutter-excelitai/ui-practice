@@ -1,3 +1,4 @@
+import 'package:excel_it_task/screen/card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -55,5 +56,68 @@ appSubTextStyle() {
 
 
  }
+
+
+///.....>> Reedem screen....TextStyle.....<<
+
+redeemScreenHeaderTextStyle(){
+  return TextStyle(
+      fontSize: 22.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.bold,
+      color: Colors.black
+  );
+
+
+}
+
+redeemScreenSubHeaderTextTextStyle(){
+
+  return TextStyle(
+      fontSize: 12.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w500,
+      color: Colors.black54
+  );
+
+}
+
+redeemScreenOtherTextTextStyle(Color color){
+
+  return TextStyle(
+      fontSize: 12.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w500,
+      color: color
+  );
+
+}
+
+
+
+///.....>> Card screen....TextStyle.....<<
+
+cardScreenTextStyle() {
+  return TextStyle(
+      fontSize: 18.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w600,
+      color: Colors.grey
+  );
+}
+
+  cardScreenHeaderTextStyle() {
+    return TextStyle(
+        fontSize: 18.sp,
+        letterSpacing: 0.4.w,
+        fontWeight: FontWeight.bold,
+        color: Colors.black
+    );
+  }
+
+
+
+
+
 
 

@@ -3,6 +3,7 @@ import 'package:excel_it_task/screen/card_screen.dart';
 import 'package:excel_it_task/screen/cheackout_screen.dart';
 import 'package:excel_it_task/screen/onboarding_screen.dart';
 import 'package:excel_it_task/screen/oreder_review_screen.dart';
+import 'package:excel_it_task/screen/reedem_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
