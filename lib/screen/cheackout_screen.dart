@@ -1,10 +1,12 @@
 
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:excel_it_task/screen/card_screen.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/app_elevated_button.dart';
+import '../widgets/custom_appbar.dart';
 
 class CheackOutScreen extends StatefulWidget {
   const CheackOutScreen({Key? key}) : super(key: key);
@@ -28,17 +30,7 @@ class _CheackOutScreenState extends State<CheackOutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-
-        title: Column(
-          children: [
-            Text('MY CART',style: appHeaderTextStyle(),),
-            Text('2 items',style: appSubTextStyle(),),
-          ],
-        ),
-      ),
+      appBar: reUseAppbar('My CART','2 ITEMS'),
 
       body: SingleChildScrollView(
         child: Padding(
@@ -361,7 +353,12 @@ class _CheackOutScreenState extends State<CheackOutScreen> {
                     AppElevatedBtn(btnText: 'CHECKOUT', onTap: () {  },)
                   ],
                 ),
-              )
+              ),
+
+              TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CardScreen()));
+              },
+                  child: Text('Next'))
 
 
 
@@ -387,4 +384,6 @@ class _CheackOutScreenState extends State<CheackOutScreen> {
 
     );
   }
+
+
 }

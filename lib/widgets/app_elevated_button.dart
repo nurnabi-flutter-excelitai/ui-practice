@@ -24,7 +24,7 @@ class AppElevatedBtn extends StatelessWidget {
         onPressed: onTap,
         child: Row(
           children: [
-            Text(btnText),
+            Center(child: Text(btnText)),
             SizedBox(width: 4.w,),
             CircleAvatar(
                 radius: 10.r,

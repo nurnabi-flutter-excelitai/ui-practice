@@ -1,3 +1,4 @@
+import 'package:excel_it_task/screen/card_screen.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -95,17 +96,26 @@ class MyWidget extends StatelessWidget {
       appBar: AppBar(
         title: Text('Circular Progress Indicator'),
       ),
-      body: Center(
-        child: CustomCircularProgressIndicator(
-          size: 100.0,
-          strokeWidth: 8.0,
-          color: Colors.red,
-          value: 0.97,
-          child: Text(
-            '23.1 GB ',
-            style: TextStyle(fontSize: 16.0, color: Colors.black),
+      body: Column(
+        children: [
+          Center(
+            child: CustomCircularProgressIndicator(
+              size: 100.0,
+              strokeWidth: 8.0,
+              color: Colors.red,
+              value: 0.97,
+              child: Text(
+                '23.1 GB ',
+                style: TextStyle(fontSize: 16.0, color: Colors.black),
+              ),
+            ),
           ),
-        ),
+
+          TextButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>CardScreen()));
+          }, child: Text('Next'))
+
+        ],
       ),
     );
   }

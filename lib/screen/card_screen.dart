@@ -3,8 +3,16 @@
 import 'dart:math';
 
 import 'package:excel_it_task/screen/oreder_review_screen.dart';
+import 'package:excel_it_task/utils/app_text.dart';
+import 'package:excel_it_task/widgets/app_elevated_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+
+import '../widgets/app_textform_filed.dart';
+import '../widgets/custom_appbar.dart';
+import '../widgets/order_screen_button.dart';
 
 class CardScreen extends StatefulWidget {
   const CardScreen({Key? key}) : super(key: key);
@@ -14,14 +22,35 @@ class CardScreen extends StatefulWidget {
 }
 
 class _CardScreenState extends State<CardScreen> {
+  DateTime selectedDate = DateTime.now();
+  bool _enabled = false;
+  final controller = ValueNotifier<bool>(false);
+  TextEditingController fromDateController = TextEditingController();
+
+
+  void _selectedFromDate(BuildContext context) {
+    DateFormat formatter = DateFormat('dd/MM/yyyy');
+    showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2030),
+    ).then((pickedFromDate) {
+      if (pickedFromDate != null) {
+        setState(() {
+          selectedDate = pickedFromDate;
+          fromDateController.value = TextEditingValue(text: formatter.format(pickedFromDate));
+        });
+      }
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-      ),
+      appBar: reUseAppbar('PAYMENT DETAILS','2 items'),
 
 
 
@@ -32,140 +61,263 @@ class _CardScreenState extends State<CardScreen> {
 
       body: Padding(
         padding:  EdgeInsets.only(top: 32.0,left: 16,right: 16),
-        child: Column(
-          children: [
-            Container(
-              height: 200.h,
-              width: 340.w,
-              decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(12)
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 200.h,
+                width: 340.w,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(12)
+
+
+                ),
+                child: Stack(
+                  children: [
+
+                    Positioned(
+                      top: 0,
+                      bottom: 15,
+                      right: 0,
+
+
+                      child: ClipPath(
+                        clipper: WaveClipper(),
+
+                        child: Container(
+                          width: 80,
+
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(12))
+                          ),
+
+                        ),
+                      ),
+                    ),
+                    ClipPath(
+                      clipper: SecondWaveClipper(),
+
+                      child: Container(
+                        // width: 340,
+                        // height: 200,
+
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(12.r,),topRight: Radius.circular(12.r))
+                        ),
+
+                      ),
+                    ),
+                    ClipPath(
+                      clipper: ThirdWaveClipper(),
+
+                      child: Container(
+                        // width: 340,
+                        // height: 200,
+
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.r,),topRight: Radius.circular(12.r),topLeft: Radius.circular(12.r))
+
+                        ),
+
+
+                      ),
+                    ),
+
+
+
+                    Positioned(
+                        right: 24.w,
+                        bottom: 20.h,
+                        child: Container(
+                          height: 30.h,
+                          width: 30.w,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.5),
+                            shape: BoxShape.circle
+                          ),
+                        )
+
+
+                    ),
+                    Positioned(
+                        right: 42.w,
+                        bottom: 20.h,
+                        child: Container(
+                          height: 30.h,
+                          width: 30.w,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle
+                          ),
+                        )
+
+
+                    ),
+
+
+                    Positioned(
+                        left: 30.w,
+                        top: 20.h,
+                        child:  Text('John Smith',style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.w700),)
+
+
+                    ),
+
+                    Positioned(
+                        left: 30.w,
+                        bottom: 20.h,
+                        child:  Text('4756 *** *** 9018',style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.w700),)
+
+
+                    ),
+                    Positioned(
+                        left: 30.w,
+                        bottom: 50.h,
+                        child:  Text('Amazon Platinium',style: TextStyle(fontSize: 14.sp,color: Colors.white,fontWeight: FontWeight.w500),)
+
+
+                    ),
+
+
+
+
+
+
+
+
+                  ],
+                ),
+              ),
+              
+              //...textform filed....
+
+              SizedBox(height: 20.h,),
+              Text('Card Holder',style: cardScreenTextStyle(),),
+              UnderlineTextField(
+                prefixIcon: Icon(Icons.person),
+                hintText: 'Person name',
+
+              ),
+
+              SizedBox(height: 20.h,),
+              Text('Card Number',style: cardScreenTextStyle(),),
+
+              UnderlineTextField(
+                prefixIcon: Icon(Icons.card_membership_outlined),
+                hintText: '5488 0269 6686',
+                suffixButton: Image.asset('images/Mastercard_2019_logo.svg.png',height: 7,width: 10,)
 
 
               ),
-              child: Stack(
+
+              SizedBox(height: 20.h,),
+
+              Text('Expiry Date',style: cardScreenTextStyle(),),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
-                  Positioned(
-                    top: 0,
-                    bottom: 15,
-                    right: 0,
-
-
-                    child: ClipPath(
-                      clipper: WaveClipper(),
-
-                      child: Container(
-                        width: 80,
-
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.only(topRight: Radius.circular(12))
-                        ),
+                  GestureDetector  (
+                    onTap: (){
+                      _selectedFromDate(context);
+                    },
+                    child: SizedBox(
+                      width: 150.w,
+                      child: UnderlineTextField(
+                        prefixIcon: Icon( Icons.date_range),
+                        hintText: '04/2016',
 
                       ),
                     ),
                   ),
-                  ClipPath(
-                    clipper: SecondWaveClipper(),
-
-                    child: Container(
-                      // width: 340,
-                      // height: 200,
-
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.only(topLeft: Radius.circular(12.r,),topRight: Radius.circular(12.r))
-                      ),
-
+                  SizedBox(
+                    width: 150.w,
+                    child: UnderlineTextField(
+                      prefixIcon: Icon(Icons.lock),
+                      hintText: '***',
+                      // suffixButton: Container(
+                      //   height: 20.h, // Adjust the height as desired
+                      //   padding: EdgeInsets.all(2),
+                      //   decoration: BoxDecoration(
+                      //     color: Colors.red,
+                      //     shape: BoxShape.circle,
+                      //   ),
+                      //   child: Icon(Icons.question_mark, size: 17, color: Colors.white),
+                      // ),
                     ),
                   ),
-                  ClipPath(
-                    clipper: ThirdWaveClipper(),
-
-                    child: Container(
-                      // width: 340,
-                      // height: 200,
-
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12.r,),topRight: Radius.circular(12.r),topLeft: Radius.circular(12.r))
-
-                      ),
-
-
-                    ),
-                  ),
-
-
-
-                  Positioned(
-                      right: 24.w,
-                      bottom: 20.h,
-                      child: Container(
-                        height: 30.h,
-                        width: 30.w,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.5),
-                          shape: BoxShape.circle
-                        ),
-                      )
-
-
-                  ),
-                  Positioned(
-                      right: 42.w,
-                      bottom: 20.h,
-                      child: Container(
-                        height: 30.h,
-                        width: 30.w,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle
-                        ),
-                      )
-
-
-                  ),
-
-
-                  Positioned(
-                      left: 30.w,
-                      top: 20.h,
-                      child:  Text('John Smith',style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.w700),)
-
-
-                  ),
-
-                  Positioned(
-                      left: 30.w,
-                      bottom: 20.h,
-                      child:  Text('4756 *** *** 9018',style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.w700),)
-
-
-                  ),
-                  Positioned(
-                      left: 30.w,
-                      bottom: 50.h,
-                      child:  Text('Amazon Platinium',style: TextStyle(fontSize: 14.sp,color: Colors.white,fontWeight: FontWeight.w500),)
-
-
-                  ),
-
-
-
-
-
-
 
 
                 ],
               ),
-            ),
+
+
+              SizedBox(height: 30.h,),
+
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Text('Save to My Cards',style: cardScreenTextStyle(),),
+
+                 AdvancedSwitch(
+                   controller: controller,
+                   activeColor: Colors.green,
+                   inactiveColor: Colors.grey,
+                   borderRadius: BorderRadius.all(const Radius.circular(15)),
+                   width: 50.0,
+                   height: 25.0,
+                   enabled: true,
+                   //disabledOpacity: 0.5,
+                 ),
+
+
+               ],
+             ),
+
+              SizedBox(height: 30.h,),
+
+              Padding(
+                padding: EdgeInsets.only(left: 50.0.w,right: 50.w),
+                child: SizedBox(
+                  height: 50.h,
+                  child: OrderScreenButton(),
+                ),
+              ),
+
+
+              
 
 
 
-          ],
+
+
+
+
+
+
+
+
+
+
+
+              
+              
+              
+              
+              
+              
+              
+
+
+
+            ],
+          ),
         ),
       ),
 
@@ -173,6 +325,8 @@ class _CardScreenState extends State<CardScreen> {
     );
   }
 }
+
+
 
 class WaveClipper extends CustomClipper<Path>{
   @override
