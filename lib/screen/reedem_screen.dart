@@ -49,16 +49,29 @@ class _ReedemScreenState extends State<ReedemScreen> {
 
 
 
-              CustomPaint(
-                child: Container(
-                  color: Colors.red,
-                  width: 340,
-                  height: 50,
-                  child: CustomPaint(
-                    painter: RPSCustomPainter(),
+              Stack(
+                children: [
+                   ClipPath(
+                    clipper: WaveClipper3(),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Container(
+
+                        height: 50.h,
+                        width: 360.w,
+                        decoration: BoxDecoration(
+                            color: AppColor.appPrimaryColor,
+                            borderRadius: BorderRadius.all(Radius.circular(10.r))),
+                      ),
+                    ),
                   ),
-                ),
-                painter: RPSCustomPainter(),
+                   Positioned(
+                       top: 30.h,
+                       left: 100.w,
+
+                       child: Text('D C W W 2 5 6',style: TextStyle(fontSize: 18.sp,color: Colors.white),))
+
+                ],
               ),
 
 
@@ -71,16 +84,7 @@ class _ReedemScreenState extends State<ReedemScreen> {
 
 
 
-              // Container(
-              //   height: 40.h,
-              //   width: 230.w,
-              //   decoration: BoxDecoration(
-              //     color: Colors.blue
-              //   ),
-              //
-              //   child: Center(child: Text('D C W W 256',style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.w600,color: Colors.white),)),
-              //
-              // ),
+
 
 
 
@@ -141,8 +145,8 @@ class _ReedemScreenState extends State<ReedemScreen> {
                         title: Text('Add Friend',style: redeemScreenOtherTextTextStyle(Colors.blue),),
                         subtitle: Text('joined',style: redeemScreenSubHeaderTextTextStyle(),),
                         trailing: Container(
-                          height: 27.h,
-                          width: 50.w,
+                          height: 27 ,
+                          width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(12.r)),
                             color: Colors.grey.withOpacity(0.2)
@@ -180,42 +184,36 @@ class _ReedemScreenState extends State<ReedemScreen> {
 
 
 
-class RPSCustomPainter extends CustomPainter{
-
+class WaveClipper3 extends CustomClipper<Path>{
   @override
-  void paint(Canvas canvas, Size size) {
+  Path getClip(Size size) {
+    // TODO: implement getClip
+    debugPrint(size.width.toString());
+    var path = new Path();
+    path.lineTo(0, size.height/2-5); //start
+    var firstStart = Offset(size.width/8, size.height/2);
+    var firstEnd = Offset(0, size.height-27);
 
+    path.quadraticBezierTo(firstStart.dx, firstStart.dy, firstEnd.dx,firstEnd.dy);
 
-
-    Paint paint0 = Paint()
-
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
-
-
-    Path path0 = Path();
-    path0.moveTo(size.width,0);
-    path0.lineTo(size.width,size.height*0.4090833);
-    path0.quadraticBezierTo(size.width*0.9562647,size.height*0.4147500,size.width*0.9556471,size.height*0.4923333);
-    path0.quadraticBezierTo(size.width*0.9555000,size.height*0.5846667,size.width,size.height*0.5922500);
-    path0.lineTo(size.width,size.height);
-    path0.lineTo(0,size.height);
-    path0.lineTo(0,size.height*0.6539167);
-    path0.quadraticBezierTo(size.width*0.0622059,size.height*0.5751667,size.width*0.0514412,size.height*0.5355000);
-    path0.quadraticBezierTo(size.width*0.0575588,size.height*0.4667500,size.width*0.0019412,size.height*0.4373333);
-    path0.lineTo(0,0);
-    path0.lineTo(size.width,0);
-    path0.close();
-
-    canvas.drawPath(path0, paint0);
-
+    path.lineTo(0, size.height);
+    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, size.height/2+7);
+    var secondStart= Offset(size.width-40, size.height/2+3);
+    var secondEnd = Offset(size.width, size.height/2-7);
+    path.quadraticBezierTo(secondStart.dx, secondStart.dy, secondEnd.dx,secondEnd.dy);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, 0);
+    path.lineTo(0, size.height/2-5);
+    path.close();
+    return path;
 
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    // TODO: implement shouldReclip
     return true;
   }
-
 }
 

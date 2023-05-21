@@ -1,4 +1,5 @@
 import 'package:excel_it_task/screen/card_screen.dart';
+import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -116,7 +117,40 @@ cardScreenTextStyle() {
   }
 
 
+//loginScreen  TextStyle
 
+loginScreenHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 28.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w800,
+      color: Colors.black54
+  );
+}
+
+
+loginScreeTextStyle() {
+  return TextStyle(
+      fontSize: 20.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w800,
+      color: Colors.black54
+  );
+}
+
+
+
+
+
+
+loginScreenSubHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 14.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.bold,
+      color: AppColor.appPrimaryColor
+  );
+}
 
 
 
