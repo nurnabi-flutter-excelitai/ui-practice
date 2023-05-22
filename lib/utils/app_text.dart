@@ -153,5 +153,56 @@ loginScreenSubHeaderTextStyle() {
 }
 
 
+// cirleProgress indicator  screen text style
 
 
+cirleScreenSubHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 12.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w800,
+      color: Colors.black87
+  );
+}
+
+circleScreenHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 16.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w800,
+      color: Colors.black87
+  );
+
+}
+
+circleScreenOtherTextStyle() {
+  return TextStyle(
+      fontSize: 10.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w800,
+      color: Colors.black54
+  );
+}
+
+
+
+
+// ticketSchdule screen text style
+
+ticketScreenSubHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 12.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w800,
+      color: Colors.grey
+  );
+}
+
+ticketScreenHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 12.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.bold,
+      color: Colors.black
+  );
+}

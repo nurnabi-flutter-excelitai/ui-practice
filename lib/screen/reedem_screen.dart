@@ -1,4 +1,5 @@
 
+import 'package:excel_it_task/screen/ticket_schedule_screen.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -155,7 +156,13 @@ class _ReedemScreenState extends State<ReedemScreen> {
                         ),
                       );
                     }),
-              )
+              ),
+
+
+
+              TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketScheduleScreen()));
+              }, child: Text('Next Page'))
 
 
 

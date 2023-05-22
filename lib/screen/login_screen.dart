@@ -1,4 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:excel_it_task/screen/reedem_screen.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
@@ -172,7 +173,9 @@ class _LoginScreenState extends State<LoginScreen> {
                  width: double.infinity,
                  height: 42.h,
                  child: ElevatedButton(
-                   onPressed: (){}, child: Text('LOGIN',style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.grey.shade700,letterSpacing: 0.4),),
+                   onPressed: (){
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>ReedemScreen()));
+                   }, child: Text('LOGIN',style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.grey.shade700,letterSpacing: 0.4),),
                    style: ElevatedButton.styleFrom(
                      backgroundColor: Colors.grey.shade300,
                      shape: RoundedRectangleBorder(
