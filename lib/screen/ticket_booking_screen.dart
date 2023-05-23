@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,20 +20,168 @@ class _TicketBookingScreenState extends State<TicketBookingScreen> {
       body: Stack(
         children: [
 
-          Positioned(
-            bottom: 0,
-            right: -20,
-            child: ClipPath(
-              clipper: TicketBookingClipper(),
-              child: Container(
-                height: 600.h,
-                width: 360.w,
-                decoration: BoxDecoration(
-                  color: Colors.white
+           ///......>> biman bangladesh airliens......
+           Positioned(
+             right: 0,
+             bottom: 0,
+             child: CustomPaint(
+
+
+              size: Size(360.w,800.h),
+              painter: RPSCustomPainter(),
+
+          ),
+           ),
+
+
+
+
+          /*Positioned(
+            right: 60.w,
+            bottom: 390.h,
+            child: Transform.scale(
+              scaleX: -1,
+              child: ClipPath(
+                clipper: Clipper1(),
+                child: Container(
+                  height: 37.h,
+                  width: 25.w,
+                  color: AppColor.appPrimaryColor,
                 ),
               ),
             ),
           ),
+
+          Positioned(
+            right: 60.w,
+            bottom: 424.h,
+            child: Transform.scale(
+              scaleX: -1,
+              child: ClipPath(
+                clipper: Clipper2(),
+                child: Container(
+                  height: 27.h,
+                  width: 25.w,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            right: 60.w,
+            bottom: 453.h,
+            child: Transform.scale(
+              scale: -1,
+              child: ClipPath(
+                clipper: Clipper3(),
+                child: Container(
+                  height: 20.h,
+                  width: 60.w,
+                  color: Colors.pink,
+                ),
+              ),
+            ),
+          ),*/
+
+
+
+
+          //....1st clipper
+          Positioned(
+            right: 190.w,
+            bottom: 390.h,
+            child: Transform.rotate(
+              angle:pi/20,
+              child: ClipPath(
+                clipper: Clipper1(),
+                child: Container(
+                  height: 37.h,
+                  width: 25.w,
+                  color: AppColor.appPrimaryColor,
+                ),
+              ),
+            ),
+          ),
+
+          //.....2nd clipper
+           Positioned(
+            right: 182.w,
+            bottom: 424.h,
+            child: Transform.rotate(
+              angle:pi/8,
+              child: ClipPath(
+                clipper:Clipper2() ,
+                child: Container(
+                  height: 27.h,
+                  width: 25.w,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+          ),
+
+
+
+          //....3rd clipper.....
+          Positioned(
+            right: 135.w,
+            bottom: 453.h,
+            child: Transform.rotate(
+              angle: pi/-6,
+              child: ClipPath(
+                clipper: Clipper3(),
+                child: Container(
+                  height: 20.h,
+                  width: 60.w,
+                  color: Colors.pink,
+                ),
+              ),
+            ),
+          ),
+
+         //......4th clipper......
+
+          Positioned(
+            right: 90.w,
+            bottom: 452.h,
+            child: Transform.rotate(
+              angle: pi/6,
+              child: ClipPath(
+                clipper: Clipper3(),
+                child: Container(
+                  height: 20.h,
+                  width: 60.w,
+                  color: Colors.pink,
+                ),
+              ),
+            ),
+          ),
+
+          //......5th clipper......
+
+          Positioned(
+            right: 74.w,
+            bottom: 424.h,
+            child: Transform.rotate(
+              angle: pi/-5,
+              child: Transform.scale(
+                scaleX: -1,
+                child: ClipPath(
+                  clipper: Clipper2(),
+                  child: Container(
+                    height: 27.h,
+                    width: 25.w,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+
+
+
 
         ],
       ),
@@ -39,53 +189,110 @@ class _TicketBookingScreenState extends State<TicketBookingScreen> {
   }
 }
 
-
-class TicketBookingClipper extends CustomClipper<Path> {
+class Clipper3  extends CustomClipper<Path>{
   @override
   Path getClip(Size size) {
-    final path = Path();
-    path.moveTo(0, size.height);
-    final firstControl = Offset(size.width / 4, size.height / 4);
-    final firstEnd = Offset(size.width / 2, 0);
-    path.quadraticBezierTo(firstControl.dx, firstControl.dy, firstEnd.dx, firstEnd.dy);
-    final secondControl = Offset(size.width * 3 / 4, size.height / 4);
-    final secondEnd = Offset(size.width, size.height);
-    path.quadraticBezierTo(secondControl.dx, secondControl.dy, secondEnd.dx, secondEnd.dy);
+    var path = Path();
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width-15.w, size.height);
 
-    path.lineTo(size.width, size.height);
+    path.lineTo(10.w, size.height);
+
+    path.lineTo(0, 0);
+
     path.close();
+
+
     return path;
   }
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    // TODO: implement shouldReclip
+   return true;
+  }
+}
+
+class Clipper2 extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    var path = new Path();
+    path.lineTo(0, size.height);
+    path.lineTo(size.width, size.height*0.73);
+    path.lineTo(size.width, size.height*0.13);
+    path.lineTo(size.width, size.height*0.13);
+    path.lineTo(0, 0);
+    path.close();
+
+
+
+    return path;
+
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+
+    return true;
+  }
+}
+
+class Clipper1 extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    var path = new Path();
+    path.lineTo(0, 0);
+    path.lineTo(0, size.height);
+    path.lineTo(size.width, size.height*0.75);
+    path.lineTo(size.width, 0);
+    path.lineTo(0, size.height*0.15);
+    path.close();
+
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    // TODO: implement shouldReclip
     return true;
   }
 }
 
 
 
-// class TicketBookingClipper extends CustomClipper<Path>{
-//   @override
-//   getClip(Size size) {
-//     var path = new Path();
-//     path.moveTo(0, size.height);
-//     var firstStart = Offset(0, size.height/2);
-//     var firstEnd = Offset(size.width/2, 0);
-//     path.quadraticBezierTo(firstStart.dx, firstStart.dy, firstEnd.dx,firstEnd.dy);
-//
-//     var secondStart = Offset(size.width/2, 0);
-//     var secondEnd = Offset(size.width, size.height);
-//     path.quadraticBezierTo(secondStart.dx, secondStart.dy, secondEnd.dx,secondEnd.dy);
-//     path.lineTo(0, size.height);
-//
-//     path.close();
-//     return path;
-//   }
-//
-//   @override
-//   bool shouldReclip(covariant CustomClipper oldClipper) {
-//     // TODO: implement shouldReclip
-//     return true;
-//   }
-// }
+
+
+class RPSCustomPainter extends CustomPainter{
+
+  @override
+  void paint(Canvas canvas, Size size) {
+
+
+
+    Paint paint0 = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
+      // ..strokeWidth = ;
+
+
+    Path path0 = Path();
+    path0.moveTo(size.width*0.3379722,size.height*0.9992875);
+    path0.lineTo(size.width*0.3340556,size.height*0.6862625);
+    path0.quadraticBezierTo(size.width*0.3881667,size.height*0.3185125,size.width*0.6428889,size.height*0.2513750);
+    path0.quadraticBezierTo(size.width*0.9194722,size.height*0.3234750,size.width,size.height*0.6883000);
+    path0.lineTo(size.width,size.height);
+    path0.lineTo(size.width*0.3379722,size.height*0.9992875);
+    path0.close();
+
+    canvas.drawPath(path0, paint0);
+
+
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+
+}
