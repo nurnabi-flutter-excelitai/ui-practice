@@ -7,6 +7,7 @@ class AppColor{
 
   static const Color appPrimaryColor = Color(0XFF0052cc);
   static const Color appBackgroundColor = Color(0XFFffffff);
+  static const Color appSubColorForContainer=  Color(0XFF115CCF);
 
 
 
