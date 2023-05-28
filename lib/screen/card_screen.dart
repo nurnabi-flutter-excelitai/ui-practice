@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:excel_it_task/screen/addto_cart_screen.dart';
 import 'package:excel_it_task/screen/oreder_review_screen.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/widgets/app_elevated_button.dart';
@@ -286,7 +287,11 @@ class _CardScreenState extends State<CardScreen> {
                 padding: EdgeInsets.only(left: 50.0.w,right: 50.w),
                 child: SizedBox(
                   height: 50.h,
-                  child: OrderScreenButton(),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AddToCartScreen()));
+                    },
+                      child: OrderScreenButton()),
                 ),
               ),
 

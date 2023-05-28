@@ -1,4 +1,6 @@
 import 'package:excel_it_task/screen/addto_cart_screen.dart';
+import 'package:excel_it_task/screen/ticket_booking_screen.dart';
+import 'package:excel_it_task/screen/ticket_schedule_screen.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
@@ -146,7 +148,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_currentPage == 2) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AddToCartScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketScheduleScreen()));
                     } else {
                       _pageController.animateToPage(
                         _currentPage + 1,
@@ -164,7 +166,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
             SizedBox(height: 10.h,),
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>AddToCartScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketScheduleScreen()));
             }, child: Text('SKIP',style: onBordingScreenTextStyle(),))
           ],
         ),

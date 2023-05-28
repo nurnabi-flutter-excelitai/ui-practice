@@ -1,4 +1,5 @@
 
+import 'package:excel_it_task/screen/cheackout_screen.dart';
 import 'package:excel_it_task/screen/ticket_schedule_screen.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
@@ -161,7 +162,7 @@ class _ReedemScreenState extends State<ReedemScreen> {
 
 
               TextButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketScheduleScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CheackOutScreen()));
               }, child: Text('Next Page'))
 
 

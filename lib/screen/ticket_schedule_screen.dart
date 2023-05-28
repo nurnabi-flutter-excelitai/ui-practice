@@ -1,5 +1,8 @@
 
 
+import 'dart:math';
+
+import 'package:excel_it_task/screen/ticket_details_screen.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +26,8 @@ class _TicketScheduleScreenState extends State<TicketScheduleScreen> {
             Stack(
               clipBehavior: Clip.none,
               children: [
+
+
                 Container(
                   height: 200.h,
                   decoration: BoxDecoration(
@@ -32,6 +37,7 @@ class _TicketScheduleScreenState extends State<TicketScheduleScreen> {
                       )
                   ),
                   child: Stack(
+                    clipBehavior: Clip.none,
                     children: [
                       Positioned(
                         top: -90.h,
@@ -66,10 +72,63 @@ class _TicketScheduleScreenState extends State<TicketScheduleScreen> {
                           ),
                         ),
                       ),
+                      Positioned(
+                        top: 30.h,
+                        left: 25.w,
+                        right: 25.w,
+                        child: Column(
+                          children: [
+                            Text('Journey',style: TextStyle(fontSize: 14.sp,color: Colors.white,letterSpacing: 0.6),),
+                            SizedBox(height: 15.h,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('JFK',style: TextStyle(fontSize: 14.sp,color: Colors.white,letterSpacing: 0.6)),
+                                SizedBox(width: 5.w,),
+                                Container(
+                                  width: 25.w,
+                                  height: 1.h,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(width: 5.w,),
+
+                                Transform.rotate(
+                                    angle: pi/2,
+                                    child: Icon(Icons.airplanemode_on,color: Colors.white,size: 20.sp,)),
+                                SizedBox(width: 5.w,),
+                                Container(
+                                  width: 25.w,
+                                  height: 1.h,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(width: 5.w,),
+                                Text('SBY',style: TextStyle(fontSize: 14.sp,color: Colors.white,letterSpacing: 0.6)),
+
+
+                                TextButton(onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketDetailsScreen()));
+                                }, child: Text('Next',style: TextStyle(color: Colors.red,fontSize: 18.sp),))
+
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+
+
 
                     ],
                   ),
                 ),
+
+
+
+
+
+
+
+
+
                 Positioned(
                   top:42.h,
                   left: 20.w,

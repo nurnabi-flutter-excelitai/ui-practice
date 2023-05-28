@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:excel_it_task/model_class/business_class_model.dart';
+import 'package:excel_it_task/screen/login_screen.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +29,7 @@ class _TicketBookingScreenState extends State<TicketBookingScreen> {
             //...pick seat
 
             Positioned(
-               left: 110.w,
+               left: 120.w,
                 top: 18.h,
                 child: Center(child: Text('PICK SEAT',style: TextStyle(fontSize: 12.sp,color: Colors.white,fontWeight: FontWeight.w600,letterSpacing: 0.6),))),
 
@@ -288,7 +289,7 @@ class _TicketBookingScreenState extends State<TicketBookingScreen> {
               left: 15.w,
               child: ElevatedButton(
                 onPressed: () {
-                  // Button press callback
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                 },
                 child: Text('Processed'),
                 style: ButtonStyle(

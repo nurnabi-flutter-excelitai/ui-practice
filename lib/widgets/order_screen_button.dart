@@ -1,6 +1,9 @@
 
 
+import 'package:excel_it_task/screen/addto_cart_screen.dart';
+import 'package:excel_it_task/screen/cheackout_screen.dart';
 import 'package:excel_it_task/screen/login_screen.dart';
+import 'package:excel_it_task/screen/oreder_review_screen.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +17,7 @@ class OrderScreenButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-       Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>AddToCartScreen()));
       },
       style: ButtonStyle(
 

@@ -1,4 +1,5 @@
 import 'package:excel_it_task/screen/cheackout_screen.dart';
+import 'package:excel_it_task/screen/custom_progress_indicator.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/utils/const_file.dart';
 import 'package:excel_it_task/widgets/app_elevated_button.dart';
@@ -197,7 +198,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
 
 
                    TextButton(onPressed: (){
-                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CheackOutScreen()));
+                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CircleScreen()));
                    }, child: Text('Next'))
 
 

@@ -1,7 +1,10 @@
 
 
 
+import 'package:excel_it_task/screen/onboarding_screen.dart';
 import 'package:excel_it_task/screen/ticket_details_screen.dart';
+import 'package:excel_it_task/screen/ticket_schedule_screen.dart';
+import 'package:excel_it_task/screen/user_feedback_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: TicketDetailsScreen ()
+            home: OnboardingScreen ()
         );
       },
 

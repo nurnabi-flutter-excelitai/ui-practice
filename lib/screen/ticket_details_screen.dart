@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:dotted_border/dotted_border.dart';
+import 'package:excel_it_task/screen/ticket_booking_screen.dart';
+import 'package:excel_it_task/screen/ticket_schedule_screen.dart';
 import 'package:excel_it_task/utils/app_text.dart';
 import 'package:excel_it_task/widgets/my_separator.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +28,9 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
             Stack(
               clipBehavior: Clip.none,
               children: [
+
+
+
                 Container(
                   height: 200.h,
                   decoration: BoxDecoration(
@@ -32,6 +39,11 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                           BorderRadius.only(bottomLeft: Radius.circular(40.r))),
                   child: Stack(
                     children: [
+                      Positioned(
+                          left:130.w,
+                          right: 25.w,
+                          top: 30.h,
+                          child: Text('Ticket Details',style: TextStyle(fontSize: 16.sp,color: Colors.white),)),
                       Positioned(
                         top: -90.h,
                         left: -90.w,
@@ -68,6 +80,8 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
 
 
 
+
+
                 Positioned(
                   top: 85.h,
                   left: 10.w,
@@ -84,10 +98,78 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(6.r),
                                   topRight: Radius.circular(6.r))),
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 20.0.h, left: 30.w,right: 30.w),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('JFK',style: TextStyle(fontSize: 14.sp,color: Colors.black,letterSpacing: 0.6)),
+                                SizedBox(width: 5.w,),
+                                Container(
+                                  width: 25.w,
+                                  height: 1.h,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(width: 5.w,),
+
+                                Transform.rotate(
+                                    angle: pi/2,
+                                    child: Icon(Icons.airplanemode_on,color: AppColor.appPrimaryColor,size: 20.sp,)),
+                                SizedBox(width: 5.w,),
+                                Container(
+                                  width: 25.w,
+                                  height: 1.h,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(width: 5.w,),
+                                Text('SBY',style: TextStyle(fontSize: 14.sp,color: Colors.black,letterSpacing: 0.6)),
+
+
+                                TextButton(onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketBookingScreen()));
+                                }, child: Text('Next',style: TextStyle(color: Colors.red,fontSize: 18.sp),))
+
+                              ],
+                            )
+                          ),
+
+
+
                         ),
                       ),
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       //...separator...
+
+
+
+
+
+
+
+
+
+
 
                       Padding(
                         padding:  EdgeInsets.only(left: 16.h,right: 16.h),
@@ -429,156 +511,7 @@ class _TicketDetailsScreenState extends State<TicketDetailsScreen> {
 
 
 
-                /* Positioned(
-                  top:80.h,
-                  left: 16.w,
-                  right: 16.w,
 
-                  child: ClipPath(
-                    clipper: TicketDetailsClipper1(),
-                    child: Container(
-                      height: 100.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(topLeft: Radius.circular(6.r),topRight: Radius.circular(6.r))
-                      ),
-
-
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top:180.h,
-                  left: 16.w,
-                  right: 16.w,
-
-
-                  child: ClipPath(
-                    clipper: TicketDetailsClipper2(),
-                    child: Container(
-                      height: 230.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6.r),bottomRight: Radius.circular(6.r))
-                      ),
-
-                      child: Padding(
-                        padding:  EdgeInsets.only(left: 16.0.w,right: 16.w,top: 30.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-
-                            //....1st row....
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                               Expanded(
-                                 flex: 1,
-                                 child: Container(
-                                 height: 50.h,
-                                 width: 50.h,
-                                 decoration: BoxDecoration(
-                                     shape: BoxShape.circle,
-                                     color: Colors.red
-                                 ),
-                                 child: Center(child: Text('Air Asia',style: TextStyle(fontSize: 12.sp,color: Colors.white),)),
-                               ),),
-                                Expanded(
-                                  flex: 5,
-                                  child: Padding(
-                                    padding:  EdgeInsets.only(left: 16.0.w,right: 16.w,),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text('Airline',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                            Text('Air Asia',style: ticketDetailsScreenHeaderTextStyle(),),
-                                          ],
-                                        ),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text('Passenger',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                            Text('James Chirstian',style: ticketDetailsScreenHeaderTextStyle(),)
-                                          ],
-                                        )
-
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            SizedBox(height: 30.h,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Date',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                    Text('24 Mar 2020',style: ticketDetailsScreenHeaderTextStyle(),),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Gate',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                    Text('24A',style: ticketDetailsScreenHeaderTextStyle(),)
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Flight No',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                    Text('NNS24',style: ticketDetailsScreenHeaderTextStyle(),)
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 30.h,),
-                            //....3rd row
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Boarding Time',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                    Text('02:39 pm',style: ticketDetailsScreenHeaderTextStyle(),),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Seat',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                    Text('5A',style: ticketDetailsScreenHeaderTextStyle(),)
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('class',style: ticketDetailsScreenSubHeaderTextStyle(),),
-                                    Text('Economy',style: ticketDetailsScreenHeaderTextStyle(),)
-                                  ],
-                                ),
-                              ],
-                            ),
-
-
-                          ],
-                        ),
-                      ),
-
-
-                    ),
-                  ),
-                ),*/
 
 
               ],
