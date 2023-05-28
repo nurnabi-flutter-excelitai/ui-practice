@@ -206,3 +206,23 @@ ticketScreenHeaderTextStyle() {
       color: Colors.black
   );
 }
+
+
+// ticketDetails screen text style
+ticketDetailsScreenSubHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 12.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.w400,
+      color: Colors.grey
+  );
+}
+
+ticketDetailsScreenHeaderTextStyle() {
+  return TextStyle(
+      fontSize: 14.sp,
+      letterSpacing: 0.4.w,
+      fontWeight: FontWeight.bold,
+      color: Colors.black
+  );
+}
